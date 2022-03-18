@@ -1,43 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
-const number = 6666;
-const music = {
-  name: 'Khalid', job:'singer'
-}
-const singer = {name:'Andrwo', job:'mordern singer'};
-const singerStyle ={
-  color: 'red',
-  backgroundColor: 'white'
-}
+// const number = 6666;
+// const music = {
+//   name: 'Khalid', job:'singer'
+// }
+// const singer = {name:'Andrwo', job:'mordern singer'};
+// const singerStyle ={
+//   color: 'red',
+//   backgroundColor: 'white'
+// }
 
-function App() {
+function App(props) {
+  console.log(props);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>JSX</h1>
-        <div className="container">
-          <h3>Hello React Js</h3>
-        </div>
-        <div className="music">
-          <p>Number: {number} </p>
-          <p style = {singerStyle}>Name: {music.name} {music.job}</p>
-          <p style = {{color:'blue', backgroundColor:'yellow'}}>Name: {singer.name} {singer.job}</p>
-        </div>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      <Person name='A. Hadi' naika='Rozina'> </Person>
+      <Person name= 'Andrew' naika='bobita'> </Person>
+      <h3>Capital: Dhaka</h3>
+      <Person name='Razzak' naika=': Sabana'> </Person>
+      <Friend name='Jasim' phone='018000000'></Friend>
+      <Friend name='Bappa Raz' phone='017000000'></Friend>
     </div>
   );
+}
+function Person(props){ 
+  console.log(props)
+  return (
+    <div className="person">
+      <h1>{props.name}</h1>
+      <p>Naika:{props.naika}</p>
+    </div>
+  )
+}
+function Friend(props){
+return(
+  <div className="friend">
+    <h1>Name: {props.name}</h1>
+    <p>Phone: {props.phone}</p>
+  </div>
+)
 }
 
 export default App;
