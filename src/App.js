@@ -1,45 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
-// const number = 6666;
-// const music = {
-//   name: 'Khalid', job:'singer'
-// }
-// const singer = {name:'Andrwo', job:'mordern singer'};
-// const singerStyle ={
-//   color: 'red',
-//   backgroundColor: 'white'
-// }
+import { useEffect, useState } from 'react';
 
-function App(props) {
-  console.log(props);
+function App() {
   return (
     <div className="App">
-     
-      <Person name='A. Hadi' naika='Rozina'> </Person>
-      <Person name= 'Andrew' naika='bobita'> </Person>
-      <h3>Capital: Dhaka</h3>
-      <Person name='Razzak' naika=': Sabana'> </Person>
-      <Friend name='Jasim' phone='018000000'></Friend>
-      <Friend name='Bappa Raz' phone='017000000'></Friend>
+      <LoadCounties></LoadCounties>
     </div>
   );
 }
-function Person(props){ 
-  console.log(props)
-  return (
-    <div className="person">
-      <h1>{props.name}</h1>
-      <p>Naika:{props.naika}</p>
+function LoadCounties(){
+  const [countries, setCountries] = useState([]);
+  useEffect(()=>{
+    fetch('https://restcountries.com/v3.1/all')
+    .then(res => res.json())
+    .then(data => setCountries(data))
+  },[])
+  return(
+    <div className="">
+      <h1>Visiting Evrey Country Of The World !!</h1>
+      <h3>Available Counries: {countries.length}</h3>
+      {
+        countries.map(country => <Country name={country.name.common} population={country.population}></Country>)
+      }
     </div>
   )
 }
-function Friend(props){
-return(
-  <div className="friend">
-    <h1>Name: {props.name}</h1>
-    <p>Phone: {props.phone}</p>
-  </div>
-)
+function Country(props){
+  return(
+    <div className="">
+       <h2>Name: {props.name}</h2>
+       <h4>Population: {props.population}</h4>
+    </div>
+  )
 }
-
 export default App;

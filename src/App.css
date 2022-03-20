@@ -36,19 +36,3 @@
     transform: rotate(360deg);
   }
 }
-.person{
-  color:rgb(5, 5, 119) ;
-  background-color:rgb(207, 240, 253) ;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 15px;
-  border: 2px dotted red;
-}
-.friend{
-  color:rgb(3, 75, 63) ;
-  background-color:rgb(132, 248, 190) ;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 15px;
-  border: 2px solid rgb(4, 0, 255);
-}
