@@ -12,6 +12,7 @@ const{area, region, name, population, capital, flags } = props.country;
            <h4>Area: {area} sqkm</h4>
            <p>Region:{region}</p>
            <p>Capital: {capital}</p>
+           <p></p>
         </div>
     );
 };
